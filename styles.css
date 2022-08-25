@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&family=Questrial&display=swap');
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* GLOBAL */
+
+:root {
+  --primary-light: hsl(40 100% 95%);
+  --primary-dark: hsl(236 63% 14%);
+
+  --secondary-dark: hsl(235 25% 21%);
+
+  --accent-xlight: hsl(60 100% 50%);
+  --accent-light: hsl(52 72% 53%);
+  --accent-dark: hsl(52 100% 26%);
+
+  --button-bg: hsl(216 20% 61%);
+  --button-text: hsl(191 95% 34%);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
+
+/* HEADER */
+
+header {
+  font-family: "Questrial", sans-serif;
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+}
+
+header ul {
+  height: 56px;
+  display: flex;
+}
+
+header li {
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 200ms;
+  cursor: pointer;
+}
+
+header li:hover {
+  background-color: var(--accent-dark);
+}
+
+header li:first-child {
+  padding-left: 0.75rem;
+}
+
+header li:last-child {
+  padding-right: 0.875rem;
+}
+
+header a {
+  font-size: 0.75rem;
+  letter-spacing: 0.05ch;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+header .logo {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+header .logo > img {
+  width: 50px;
+  height: 50px;
+}
+
+header .logo > span {
+  font-size: 2.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+header .split {
+  margin-right: auto;
+}
+
+header .sign-up {
+  color: var(--accent-xlight);
+  text-shadow: 0 0 3px var(--accent-xlight);
+}
