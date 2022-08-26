@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300&family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Questrial&family=Roboto:wght@300&display=swap');
 
 /* RESET */
 
@@ -34,8 +34,12 @@ ul {
   --button-text: hsl(191 95% 34%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
 
@@ -105,4 +109,151 @@ header .split {
 header .sign-up {
   color: var(--accent-xlight);
   text-shadow: 0 0 3px var(--accent-xlight);
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  font-family: "Questrial", sans-serif;
+  color: var(--accent-light);
+  background-image: url(./images/index-bg.jpg);
+  background-position: bottom;
+  height: calc(100vh - 56px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  --a1-duration: 800ms;
+  --a2-duration: 1200ms;
+  --a3-duration: 400ms;
+
+  --a1-delay: 0ms;
+  --a2-delay: calc(var(--a1-delay) + var(--a1-duration));
+  --a3-delay: calc(var(--a2-delay) + var(--a2-duration));
+  --scroll-delay: calc(var(--a3-delay) + var(--a3-duration));
+}
+
+.hero > :where(.welcome, .title, .slogan),
+.hero::before {
+  animation-fill-mode: forwards !important;
+  opacity: 0;
+}
+
+.hero .welcome {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  animation: welcome-load var(--a1-duration) var(--a1-delay);
+}
+
+.hero .title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 15vw;
+  line-height: min(50vh, 1.35em);
+  text-transform: uppercase;
+  animation: title-load var(--a2-duration) var(--a2-delay);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: black;
+  animation: background-darken var(--a2-duration) var(--a2-delay);
+}
+
+.hero .slogan {
+  animation: slogan-load var(--a3-duration) var(--a3-delay);
+}
+
+.hero .scroll-indicator {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  width: 25px;
+  height: 70px;
+}
+
+.hero .scroll-indicator::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid;
+  border-color: transparent var(--primary-light) var(--primary-light) transparent;
+  transform: translateX(-50%) rotate(45deg);
+  opacity: 0;
+
+  animation: scroll-move 1600ms ease-in-out var(--scroll-delay) infinite;
+}
+
+/* PLACEHOLDER */
+
+.hero + section {
+  height: 100vh;
+}
+
+/* ANIMATIONS */
+
+@keyframes welcome-load {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes title-load {
+  0% {
+    transform: translateY(-10vh);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes background-darken {
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes slogan-load {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-move {
+  0% {
+    opacity: 0;
+    bottom: 70px;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    bottom: 0;
+  }
 }
