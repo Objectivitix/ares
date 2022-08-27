@@ -1,4 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Questrial&family=Roboto:wght@300&display=swap');
+/* FONTS */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Questrial&family=Roboto:wght@300;700&display=swap");
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_light-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_light_italic-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_light_italic-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_regular-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_italic-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_bold-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./fonts/calibri_bold_italic-webfont.woff2") format("woff2"),
+       url("./fonts/calibri_bold_italic-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
 
 /* RESET */
 
@@ -24,7 +74,7 @@ ul {
   --primary-light: hsl(40 100% 95%);
   --primary-dark: hsl(236 63% 14%);
 
-  --secondary-dark: hsl(235 25% 21%);
+  --secondary-dark: hsl(228 10% 10%);
 
   --accent-xlight: hsl(60 100% 50%);
   --accent-light: hsl(52 72% 53%);
@@ -39,74 +89,74 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Calibri", sans-serif;
   font-weight: 300;
 }
 
-/* HEADER */
+/* NAVBAR */
 
-header {
+nav {
   font-family: "Questrial", sans-serif;
   color: var(--primary-light);
   background-color: var(--primary-dark);
 }
 
-header ul {
+nav ul {
   height: 56px;
   display: flex;
 }
 
-header li {
-  padding: 0.625rem;
+nav li {
   display: flex;
-  align-items: center;
-  transition: background-color 200ms;
-  cursor: pointer;
+  align-items: stretch;
 }
 
-header li:hover {
-  background-color: var(--accent-dark);
-}
-
-header li:first-child {
-  padding-left: 0.75rem;
-}
-
-header li:last-child {
-  padding-right: 0.875rem;
-}
-
-header a {
+nav a {
   font-size: 0.75rem;
   letter-spacing: 0.05ch;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 0 0.625rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 200ms;
 }
 
-header .logo {
-  height: 50px;
+nav li:first-child > a {
+  padding-left: 0.75rem;
+}
+
+nav li:last-child > a {
+  padding-right: 0.875rem;
+}
+
+nav a:hover {
+  background-color: var(--accent-dark);
+}
+
+nav .logo {
   display: flex;
   align-items: center;
   gap: 0.375rem;
 }
 
-header .logo > img {
+nav .logo > img {
   width: 50px;
   height: 50px;
 }
 
-header .logo > span {
+nav .logo > span {
   font-size: 2.25rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: 0;
 }
 
-header .split {
+nav .split {
   margin-right: auto;
 }
 
-header .sign-up {
+nav .sign-up {
   color: var(--accent-xlight);
   text-shadow: 0 0 3px var(--accent-xlight);
 }
@@ -118,6 +168,7 @@ header .sign-up {
   isolation: isolate;
 
   font-family: "Questrial", sans-serif;
+  text-align: center;
   color: var(--accent-light);
   background-image: url(./images/index-bg.jpg);
   background-position: bottom;
@@ -131,14 +182,15 @@ header .sign-up {
   --a1-duration: 800ms;
   --a2-duration: 1200ms;
   --a3-duration: 400ms;
+  --a4-duration: 400ms;
 
-  --a1-delay: 0ms;
+  --a1-delay: 420ms;
   --a2-delay: calc(var(--a1-delay) + var(--a1-duration));
   --a3-delay: calc(var(--a2-delay) + var(--a2-duration));
-  --scroll-delay: calc(var(--a3-delay) + var(--a3-duration));
+  --a4-delay: calc(var(--a3-delay) + var(--a3-duration));
 }
 
-.hero > :where(.welcome, .title, .slogan),
+.hero :where(.welcome, .title, .slogan, .sign-up-button),
 .hero::before {
   animation-fill-mode: forwards !important;
   opacity: 0;
@@ -151,11 +203,12 @@ header .sign-up {
 
 .hero .title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 15vw;
   line-height: min(50vh, 1.35em);
   text-transform: uppercase;
-  animation: title-load var(--a2-duration) var(--a2-delay);
+  animation: title-load var(--a2-duration) var(--a2-delay),
+    title-up var(--a4-duration) var(--a4-delay);
 }
 
 .hero::before {
@@ -171,13 +224,39 @@ header .sign-up {
   animation: slogan-load var(--a3-duration) var(--a3-delay);
 }
 
+.hero .sign-up-button {
+  position: absolute;
+  top: min(calc(50% + 23vh), calc(50% + 15vw));
+
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--primary-light);
+  background-color: var(--accent-dark);
+  padding: 1rem;
+  border-radius: 4px;
+
+  transition: box-shadow 200ms ease-out;
+  animation: slogan-load var(--a4-duration) var(--a4-delay);
+}
+
+.hero .sign-up-button:hover {
+  box-shadow: inset 0 0 0 100vmax hsl(0 0% 0% / 20%);
+}
+
+.hero .main-content {
+  animation: move-up var(--a4-duration) var(--a4-delay);
+  animation-fill-mode: forwards;
+}
+
 .hero .scroll-indicator {
   display: block;
   position: absolute;
+
   left: 50%;
   bottom: 30px;
   width: 25px;
   height: 70px;
+  transform: translateX(-50%);
 }
 
 .hero .scroll-indicator::before {
@@ -192,13 +271,69 @@ header .sign-up {
   transform: translateX(-50%) rotate(45deg);
   opacity: 0;
 
-  animation: scroll-move 1600ms ease-in-out var(--scroll-delay) infinite;
+  animation: scroll-move 1600ms ease-in-out var(--a4-delay) infinite;
 }
 
-/* PLACEHOLDER */
+/* MAIN */
 
-.hero + section {
-  height: 100vh;
+main {
+  padding: 20vh min(370px, 20vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+main > section {
+  position: relative;
+  isolation: isolate;
+
+  color: var(--primary-light);
+  background-position: center;
+  padding: 2.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main > section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--primary-dark);
+  opacity: 0.7;
+  border-radius: 8px;
+}
+
+main > section:nth-child(even)::before {
+  background-color: var(--secondary-dark);
+}
+
+main > section:nth-child(1) { background-image: url(./images/section-1-bg.jpeg); }
+main > section:nth-child(2) { background-image: url(./images/section-2-bg.jpg); }
+main > section:nth-child(3) { background-image: url(./images/section-3-bg.jpg); }
+main > section:nth-child(4) { background-image: url(./images/section-4-bg.jpg); }
+
+main h1 {
+  color: var(--accent-light);
+  font-family: "Questrial", sans-serif;
+  font-weight: normal;
+  line-height: 1.15em;
+  text-shadow: 0 0 5px var(--accent-dark);
+  width: 30%;
+}
+
+main div {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+main a {
+  color: var(--accent-xlight);
+  text-decoration: none;
 }
 
 /* ANIMATIONS */
@@ -239,6 +374,18 @@ header .sign-up {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes title-up {
+  100% {
+    line-height: min(50vh, 1.1em);
+  }
+}
+
+@keyframes move-up {
+  100% {
+    transform: translateY(-5vh);
   }
 }
 
