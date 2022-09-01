@@ -79,9 +79,6 @@ ul {
   --accent-xlight: hsl(60 100% 50%);
   --accent-light: hsl(52 72% 53%);
   --accent-dark: hsl(52 100% 26%);
-
-  --button-bg: hsl(216 20% 61%);
-  --button-text: hsl(191 95% 34%);
 }
 
 html {
@@ -96,8 +93,8 @@ body {
 /* NAVBAR */
 
 nav {
-  font-family: "Questrial", sans-serif;
   color: var(--primary-light);
+  font-family: "Questrial", sans-serif;
   background-color: var(--primary-dark);
 }
 
@@ -210,10 +207,11 @@ nav .sign-up {
 }
 
 .hero::before {
-  content: "";
   position: absolute;
+  content: "";
   inset: 0;
   z-index: -1;
+
   background-color: black;
   animation: background-darken var(--a2-duration) var(--a2-delay);
 }
@@ -237,12 +235,13 @@ nav .sign-up {
 }
 
 .hero .sign-up-button::before {
-  content: "";
   position: absolute;
+  content: "";
   inset: 0;
   z-index: -1;
-  background-color: var(--accent-xlight);
+
   width: 150%;
+  background-color: var(--accent-xlight);
   transform: translateX(-100%) skewX(-45deg);
   transform-origin: top left;
   transition: transform 200ms ease-out;
@@ -265,12 +264,14 @@ nav .sign-up {
   bottom: 30px;
   width: 25px;
   height: 70px;
+
   transform: translateX(-50%);
 }
 
 .hero .scroll-indicator::before {
-  content: "";
   position: absolute;
+
+  content: "";
   left: 50%;
   width: 20px;
   height: 20px;
@@ -298,6 +299,7 @@ main > section {
   isolation: isolate;
 
   color: var(--primary-light);
+  background-image: var(--image-file);
   background-position: center;
   padding: 2.5rem;
   border-radius: 8px;
@@ -305,11 +307,17 @@ main > section {
   justify-content: space-between;
 }
 
+main > section:nth-child(1) { --image-file: url(./images/section-1-bg.jpeg); }
+main > section:nth-child(2) { --image-file: url(./images/section-2-bg.jpg); }
+main > section:nth-child(3) { --image-file: url(./images/section-3-bg.jpg); }
+main > section:nth-child(4) { --image-file: url(./images/section-4-bg.jpg); }
+
 main > section::before {
-  content: "";
   position: absolute;
+  content: "";
   inset: 0;
   z-index: -1;
+
   background-color: var(--primary-dark);
   opacity: 0.7;
   border-radius: 8px;
@@ -319,18 +327,13 @@ main > section:nth-child(even)::before {
   background-color: var(--secondary-dark);
 }
 
-main > section:nth-child(1) { background-image: url(./images/section-1-bg.jpeg); }
-main > section:nth-child(2) { background-image: url(./images/section-2-bg.jpg); }
-main > section:nth-child(3) { background-image: url(./images/section-3-bg.jpg); }
-main > section:nth-child(4) { background-image: url(./images/section-4-bg.jpg); }
-
 main h1 {
+  width: 30%;
   color: var(--accent-light);
   font-family: "Questrial", sans-serif;
   font-weight: normal;
   line-height: 1.15em;
   text-shadow: 0 0 5px var(--accent-dark);
-  width: 30%;
 }
 
 main div {
