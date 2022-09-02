@@ -374,16 +374,46 @@ nav .sign-up {
 .praise .select {
   position: relative;
   width: 8em;
-  border-radius: 5px;
-  outline: 2px solid black;
-  outline-offset: 0.2em;
   user-select: none;
 }
 
 .praise .dropdown {
+  position: relative;
+  isolation: isolate;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.praise .dropdown::before,
+.praise .dropdown::after {
+  position: absolute;
+  content: "";
+
+  width: calc(100% + 0.4em);
+  height: calc(100% + 0.4em);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.375em;
+}
+
+.praise .dropdown::before {
+  z-index: -1;
+  border: 2px solid black;
+}
+
+.praise .dropdown::after {
+  z-index: -2;
+  background-image: var(--image-file);
+  background-position: center;
+  opacity: 0.3;
+  transition: opacity 200ms;
+}
+
+.praise .dropdown:hover::after {
+  opacity: 0.5;
 }
 
 .praise .caret {

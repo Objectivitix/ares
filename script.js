@@ -7,6 +7,7 @@ onAttributeMutation(praiseSelect, "data-value", target => {
 
   praiseAll.forEach(list => list.style.display = "none");
   selectedList.style.display = "block";
+  target.style.setProperty("--image-file", `url('./images/${target.dataset.value}.png')`);
 });
 
 // custom selects are initialised afterwards
