@@ -60,6 +60,10 @@
   margin: 0;
 }
 
+*:focus {
+  outline: 0;
+}
+
 a {
   color: inherit;
 }
@@ -135,7 +139,7 @@ nav li:last-child > a {
   padding-right: 0.875rem;
 }
 
-nav a:hover {
+nav a:where(:hover, :focus-visible) {
   background-color: var(--accent-dark);
 }
 
@@ -255,12 +259,12 @@ nav .sign-up {
   transition: transform var(--transition-slow) ease-out;
 }
 
-.hero .sign-up-button:hover {
+.hero .sign-up-button:where(:hover, :focus-visible) {
   color: var(--primary-dark);
   border-color: var(--accent-xlight);
 }
 
-.hero .sign-up-button:hover::before {
+.hero .sign-up-button:where(:hover, :focus-visible)::before {
   transform: translateX(0) skewX(-45deg);
 }
 
@@ -274,6 +278,10 @@ nav .sign-up {
   height: 70px;
 
   transform: translateX(-50%);
+}
+
+.hero .scroll-indicator:focus-visible {
+  outline: 1px solid var(--accent-xlight);
 }
 
 .hero .scroll-indicator::before {
@@ -293,7 +301,7 @@ nav .sign-up {
   animation: scroll-move 1600ms ease-in-out var(--scroll-delay) infinite;
 }
 
-.hero .scroll-indicator:hover::before {
+.hero .scroll-indicator:where(:hover, :focus-visible)::before {
   border-color: transparent var(--accent-xlight) var(--accent-xlight) transparent;
 }
 
@@ -313,18 +321,13 @@ nav .sign-up {
   isolation: isolate;
 
   color: var(--primary-light);
-  background-image: var(--image-file);
+  background-image: var(--bg);
   background-position: center;
   padding: 2.5rem;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
 }
-
-.about > section:nth-child(1) { --image-file: url(./images/section-1-bg.jpeg); }
-.about > section:nth-child(2) { --image-file: url(./images/section-2-bg.jpg); }
-.about > section:nth-child(3) { --image-file: url(./images/section-3-bg.jpg); }
-.about > section:nth-child(4) { --image-file: url(./images/section-4-bg.jpg); }
 
 .about > section::before {
   position: absolute;
@@ -364,8 +367,12 @@ nav .sign-up {
   transition: text-shadow var(--transition-slow);
 }
 
-.about a:hover {
+.about a:where(:hover, :focus-visible) {
   text-shadow: 0 0 3px var(--accent-xlight);
+}
+
+.about a:focus-visible {
+  outline: 1px solid var(--accent-xlight);
 }
 
 /* PRAISE */
@@ -422,15 +429,19 @@ nav .sign-up {
   border: 2px solid black;
 }
 
+.praise .dropdown:focus-visible:before {
+  outline: 3px solid var(--accent-xlight);
+}
+
 .praise .dropdown::after {
   z-index: -2;
-  background-image: var(--image-file);
+  background-image: var(--bg);
   background-position: center;
   opacity: 0.3;
   transition: opacity var(--transition-reg);
 }
 
-.praise .dropdown:hover::after {
+.praise .dropdown:where(:hover, :focus-visible)::after {
   opacity: 0.5;
 }
 
@@ -458,6 +469,10 @@ nav .sign-up {
   margin-top: 5px;
   display: flex;
   gap: 1em;
+}
+
+.praise .options > li:focus-visible {
+  color: var(--accent-light);
 }
 
 .praise .dropdown,

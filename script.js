@@ -7,7 +7,7 @@ onAttributeMutation(praiseSelect, "data-value", target => {
 
   praiseAll.forEach(list => list.style.display = "none");
   selectedList.style.display = "block";
-  target.style.setProperty("--image-file", `url('./images/${target.dataset.value}.png')`);
+  target.style.setProperty("--bg", `url('./images/${target.dataset.value}.png')`);
 });
 
 // custom selects are initialised afterwards
@@ -35,15 +35,27 @@ function setupSelect(select) {
   select.dataset.value = dfault.dataset.value;
 
   dropdown.addEventListener("click", () => select.classList.toggle("active"));
+  dropdown.addEventListener("keydown", evt => {
+    if (evt.key === "Enter") select.classList.toggle("active");
+    if (evt.key === "Tab") select.classList.add("active");
+  });
 
   options.forEach(option => {
-    option.addEventListener("click", () => {
+    const handleChange = () => {
       currValue.innerHTML = option.innerHTML;
       select.dataset.value = option.dataset.value;
 
       options.forEach(option => option.classList.remove("selected"));
       option.classList.add("selected");
       select.classList.remove("active");
+    }
+
+    option.addEventListener("click", handleChange);
+    option.addEventListener("keydown", evt => {
+      if (evt.key === "Enter") handleChange();
     });
   });
+
+  options[options.length - 1]
+    .addEventListener("blur", () => select.classList.remove("active"));
 }
