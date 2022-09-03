@@ -79,6 +79,14 @@ ul {
   --accent-xlight: hsl(60 100% 50%);
   --accent-light: hsl(52 72% 53%);
   --accent-dark: hsl(52 100% 26%);
+
+  --calibri: "Calibri", sans-serif;
+  --questrial: "Questrial", sans-serif;
+  --montserrat: "Montserrat", sans-serif;
+
+  --transition-fast: 100ms;
+  --transition-reg: 150ms;
+  --transition-slow: 200ms;
 }
 
 html {
@@ -86,7 +94,7 @@ html {
 }
 
 body {
-  font-family: "Calibri", sans-serif;
+  font-family: var(--calibri);
   font-weight: 300;
 }
 
@@ -94,7 +102,7 @@ body {
 
 nav {
   color: var(--primary-light);
-  font-family: "Questrial", sans-serif;
+  font-family: var(--questrial);
   background-color: var(--primary-dark);
 }
 
@@ -116,7 +124,7 @@ nav a {
   padding: 0 0.625rem;
   display: flex;
   align-items: center;
-  transition: background-color 200ms;
+  transition: background-color var(--transition-slow);
 }
 
 nav li:first-child > a {
@@ -144,7 +152,7 @@ nav .logo > img {
 
 nav .logo > span {
   font-size: 2.25rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--montserrat);
   font-weight: bold;
   letter-spacing: 0;
 }
@@ -164,7 +172,7 @@ nav .sign-up {
   position: relative;
   isolation: isolate;
 
-  font-family: "Questrial", sans-serif;
+  font-family: var(--questrial);
   text-align: center;
   color: var(--accent-light);
   background-image: url(./images/index-bg.jpg);
@@ -198,7 +206,7 @@ nav .sign-up {
 }
 
 .hero .title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--montserrat);
   font-weight: bold;
   font-size: calc(11vw + 3rem);
   line-height: min(50vh, 1.35em);
@@ -230,7 +238,7 @@ nav .sign-up {
   border: 1px solid var(--primary-light);
   border-radius: 4px;
 
-  transition: all 200ms ease-out;
+  transition: all var(--transition-slow) ease-out;
   animation: sign-up-load var(--a3-duration) var(--a3-delay);
 }
 
@@ -244,7 +252,7 @@ nav .sign-up {
   background-color: var(--accent-xlight);
   transform: translateX(-100%) skewX(-45deg);
   transform-origin: top left;
-  transition: transform 200ms ease-out;
+  transition: transform var(--transition-slow) ease-out;
 }
 
 .hero .sign-up-button:hover {
@@ -281,7 +289,12 @@ nav .sign-up {
   transform: translateX(-50%) rotate(45deg);
   opacity: 0;
 
+  transition: border-color var(--transition-reg);
   animation: scroll-move 1600ms ease-in-out var(--scroll-delay) infinite;
+}
+
+.hero .scroll-indicator:hover::before {
+  border-color: transparent var(--accent-xlight) var(--accent-xlight) transparent;
 }
 
 /* ABOUT */
@@ -332,7 +345,7 @@ nav .sign-up {
   width: 30%;
   color: var(--accent-light);
   font-size: 1.625rem;
-  font-family: "Questrial", sans-serif;
+  font-family: var(--questrial);
   font-weight: normal;
   line-height: 1.15em;
   text-shadow: 0 0 5px var(--accent-dark);
@@ -348,6 +361,11 @@ nav .sign-up {
 .about a {
   color: var(--accent-xlight);
   text-decoration: none;
+  transition: text-shadow var(--transition-slow);
+}
+
+.about a:hover {
+  text-shadow: 0 0 3px var(--accent-xlight);
 }
 
 /* PRAISE */
@@ -362,8 +380,8 @@ nav .sign-up {
 }
 
 .praise > h2 {
-  font-size: min(calc(3.875vw + 0.875rem), 2.625rem);
-  font-family: "Montserrat", sans-serif;
+  font-size: min(calc(6.25vw + 0.5rem), 2.75rem);
+  font-family: var(--montserrat);
   line-height: 0.8em;
   display: flex;
   flex-wrap: wrap;
@@ -409,7 +427,7 @@ nav .sign-up {
   background-image: var(--image-file);
   background-position: center;
   opacity: 0.3;
-  transition: opacity 200ms;
+  transition: opacity var(--transition-reg);
 }
 
 .praise .dropdown:hover::after {
@@ -422,7 +440,7 @@ nav .sign-up {
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
   border-right: 8px solid black;
-  transition: transform 100ms ease-in;
+  transition: transform var(--transition-fast) ease-in;
 }
 
 .praise .select.active .caret {
