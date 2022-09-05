@@ -75,14 +75,20 @@ ul {
 /* GLOBAL */
 
 :root {
-  --primary-light: hsl(40 100% 95%);
-  --primary-dark: hsl(236 63% 14%);
+  --primary-light-values: 40 100% 95%;
+  --primary-dark-values: 236 63% 14%;
+  --primary-light: hsl(var(--primary-light-values));
+  --primary-dark: hsl(var(--primary-dark-values));
 
-  --secondary-dark: hsl(228 10% 10%);
+  --secondary-dark-values: 228 10% 10%;
+  --secondary-dark: hsl(var(--secondary-dark-values));
 
-  --accent-xlight: hsl(60 100% 50%);
-  --accent-light: hsl(52 72% 53%);
-  --accent-dark: hsl(52 100% 26%);
+  --accent-xlight-values: 60 100% 50%;
+  --accent-light-values: 52 72% 53%;
+  --accent-dark-values: 52 100% 26%;
+  --accent-xlight: hsl(var(--accent-xlight-values));
+  --accent-light: hsl(var(--accent-light-values));
+  --accent-dark: hsl(var(--accent-dark-values));
 
   --calibri: "Calibri", sans-serif;
   --questrial: "Questrial", sans-serif;

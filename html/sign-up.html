@@ -9,6 +9,93 @@
   <script src="/js/sign-up.js" defer></script>
 </head>
 <body>
+  <header>
+    <h1>Ares<img src="/resources/images/logo-reg.png" alt=""></h1>
+  </header>
 
+  <main>
+    <p class="preamble">
+      A sign-up form is all it takes to be part of the largest
+      multiplayer experience the world has ever seen.
+    </p>
+
+    <form action="" method="post" id="sign-up-form">
+      <h2>Let's do this!</h2>
+      <section>
+        <div class="row">
+          <div class="column">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+          </div>
+          <div class="column">
+            <label for="email">Email address</label>
+            <input type="email" name="email" id="email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <label for="pwd">Password</label>
+            <input type="password" name="pwd" id="pwd">
+          </div>
+          <div class="column">
+            <label for="pwd-confirm">Confirm password</label>
+            <input type="password" name="pwd-confirm" id="pwd-confirm">
+          </div>
+        </div>
+      </section>
+      <section class="gap">
+        <fieldset>
+          <legend>Were you a participant in any of the games in the <i>Aion</i> trilogy?</legend>
+          <div class="row-short">
+            <div class="column-flat">
+              <input type="radio" name="participated" id="true" value="true">
+              <label for="true">Yes</label>
+            </div>
+            <div class="column-flat">
+              <input type="radio" name="participated" id="false" value="false" checked>
+              <label for="false">No</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="aion-id-wrapper">
+          <p>
+            Awesome! Link with your AionID and get exclusive awards.
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">How do I find my AionID?</a>
+          </p>
+          <div>
+            <label for="aion-id">AionID</label>
+            <input type="tel" name="aion-id" id="aion-id">
+          </div>
+        </div>
+      </section>
+      <section class="gap">
+        <div>
+          <input type="checkbox" name="newsletter" id="newsletter">
+          <label for="newsletter">
+            I would like to receive updates concerning <i>Ares</i> and related products
+            and services, no matter how insignificant. I would also like myriads of
+            advertisements and promotions about everything and nothing flooding my inbox
+            every day.
+          </label>
+        </div>
+        <div>
+          <input type="checkbox" name="acceptance" id="acceptance">
+          <label for="acceptance">
+            I agree to and accept the
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Terms and Conditions</a>
+            of <i>Ares</i>, in which I waive all my rights and privileges, including ones
+            concerning privacy, and cannot, under any circumstance, hold any person, group,
+            or organisation responsible for anything. Oh, and I also consent to
+            sacrificing my first child at the 3rd blood moon of 2024 to the Ones Above.
+          </label>
+        </div>
+      </section>
+    </form>
+
+    <div class="after-form">
+      <button form="sign-up-form" type="submit">Create Account</button>
+      <p>Already have an <i>Ares</i> account? <a href="/html/log-in.html">Log in</a></p>
+    </div>
+  </main>
 </body>
 </html>

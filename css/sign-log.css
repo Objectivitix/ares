@@ -1,0 +1,268 @@
+/* FONTS */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Questrial&display=swap");
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri_light-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri/calibri_light_italic-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_light_italic-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri/calibri_regular-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri/calibri_italic-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri/calibri_bold-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("/resources/fonts/calibri/calibri_bold_italic-webfont.woff2") format("woff2"),
+       url("/resources/fonts/calibri/calibri_bold_italic-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 100%;
+}
+
+fieldset {
+  border: none;
+}
+
+/* GLOBAL */
+
+:root {
+  --primary-light-values: 40 100% 95%;
+  --primary-dark-values: 236 63% 14%;
+  --primary-light: hsl(var(--primary-light-values));
+  --primary-dark: hsl(var(--primary-dark-values));
+
+  --secondary-dark-values: 228 10% 10%;
+  --secondary-dark: hsl(var(--secondary-dark-values));
+
+  --accent-xlight-values: 60 100% 50%;
+  --accent-light-values: 52 72% 53%;
+  --accent-dark-values: 52 100% 26%;
+  --accent-xlight: hsl(var(--accent-xlight-values));
+  --accent-light: hsl(var(--accent-light-values));
+  --accent-dark: hsl(var(--accent-dark-values));
+
+  --calibri: "Calibri", sans-serif;
+  --questrial: "Questrial", sans-serif;
+  --montserrat: "Montserrat", sans-serif;
+
+  --transition-fast: 100ms;
+  --transition-reg: 150ms;
+  --transition-slow: 200ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  font-family: var(--calibri);
+  font-weight: 300;
+  display: flex;
+}
+
+/* HEADER */
+
+header {
+  overflow: hidden;
+  background-image: url(/resources/images/sign-log/main-bg.jpg);
+  background-size: cover;
+  background-position: top;
+  width: 40vw;
+}
+
+header > h1 {
+  position: relative;
+  margin-top: 20%;
+
+  font-family: var(--montserrat);
+  font-weight: bold;
+  font-size: calc(10vw + 1rem);
+  text-align: center;
+  text-transform: uppercase;
+  --shadow: 0 0 0.85em var(--secondary-dark);
+  text-shadow: var(--shadow), var(--shadow);
+  color: var(--accent-light);
+}
+
+header img {
+  position: absolute;
+  width: 0.375em;
+  height: 0.375em;
+  top: -0.25em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* MAIN */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+main > * {
+  width: 60vw;
+  padding: 0 20vw 0 2rem;
+}
+
+main > .preamble {
+  font-family: var(--montserrat);
+  font-size: 1.5rem;
+  letter-spacing: -0.07ch;
+}
+
+main > form {
+  background-color: var(--primary-light);
+  box-shadow: 0 0 10px hsl(var(--secondary-dark-values) / 60%);
+  clip-path: inset(2px 0 -10px 0);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem;
+
+  --input-border-default: hsl(52 100% 26% / 30%);
+  --input-border-focus: hsl(202 100% 60%);
+}
+
+main > form > h2 {
+  font-family: var(--montserrat);
+}
+
+main > form .row {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+main > form .row-short {
+  width: fit-content;
+  display: flex;
+  gap: 1rem;
+}
+
+main > form .column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main > form .column-flat {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+}
+
+main > form a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+main > form a:hover {
+  text-decoration: none;
+}
+
+main > form label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--secondary-dark);
+}
+
+main > form input:where([type="radio"], [type="checkbox"]) + label {
+  font-size: 0.8rem;
+  text-transform: none;
+}
+
+main > form input {
+  background-color: var(--primary-light);
+  padding: 2px 3px;
+  border: 1px solid var(--input-border-default);
+  border-radius: 5px;
+}
+
+main > form input:not([type="radio"], [type="checkbox"]):focus {
+  box-shadow: 3px 3px 5px hsl(var(--secondary-dark-values) / 35%);
+  border-color: var(--input-border-focus);
+}
+
+main > form .gap > * + * {
+  margin-top: 0.5rem;
+}
+
+main > form .aion-id-wrapper {
+  margin-top: 0.75rem;
+}
+
+main > form .aion-id-wrapper > div {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main > form .aion-id-wrapper input {
+  flex: 1;
+}
