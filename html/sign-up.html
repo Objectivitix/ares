@@ -25,21 +25,22 @@
         <div class="row">
           <div class="column">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" required>
+            <span></span>
           </div>
           <div class="column">
             <label for="email">Email address</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
           </div>
         </div>
         <div class="row">
           <div class="column">
             <label for="pwd">Password</label>
-            <input type="password" name="pwd" id="pwd">
+            <input type="password" name="pwd" id="pwd" required>
           </div>
           <div class="column">
             <label for="pwd-confirm">Confirm password</label>
-            <input type="password" name="pwd-confirm" id="pwd-confirm">
+            <input type="password" name="pwd-confirm" id="pwd-confirm" required>
           </div>
         </div>
       </section>
@@ -79,7 +80,7 @@
           </label>
         </div>
         <div>
-          <input type="checkbox" name="acceptance" id="acceptance">
+          <input type="checkbox" name="acceptance" id="acceptance" required>
           <label for="acceptance">
             I agree to and accept the
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Terms and Conditions</a>
@@ -93,7 +94,7 @@
     </form>
 
     <div class="after-form">
-      <button form="sign-up-form" type="submit">Create Account</button>
+      <button form="sign-up-form" type="submit" class="submit-button">Create Account</button>
       <p>Already have an <i>Ares</i> account? <a href="/html/log-in.html">Log in</a></p>
     </div>
   </main>

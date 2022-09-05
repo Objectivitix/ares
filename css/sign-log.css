@@ -168,6 +168,15 @@ main > * {
   padding: 0 20vw 0 2rem;
 }
 
+main a {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+main a:hover {
+  text-decoration: none;
+}
+
 main > .preamble {
   font-family: var(--montserrat);
   font-size: 1.5rem;
@@ -216,15 +225,6 @@ main > form .column-flat {
   gap: 4px;
 }
 
-main > form a {
-  color: var(--accent-dark);
-  text-decoration: underline;
-}
-
-main > form a:hover {
-  text-decoration: none;
-}
-
 main > form label {
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -265,4 +265,39 @@ main > form .aion-id-wrapper > div {
 
 main > form .aion-id-wrapper input {
   flex: 1;
+}
+
+main .submit-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: none;
+  padding: 0.75rem;
+  border: 1px solid var(--primary-dark);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+
+  transition: all var(--transition-slow) ease-out;
+}
+
+main .submit-button::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: -1;
+
+  width: 150%;
+  background-color: var(--accent-xlight);
+  transform: translateX(-100%) skewX(-45deg);
+  transform-origin: top left;
+  transition: transform var(--transition-slow) ease-out;
+}
+
+main .submit-button:where(:hover, :focus-visible) {
+  border-color: var(--accent-xlight);
+}
+
+main .submit-button:where(:hover, :focus-visible)::before {
+  transform: translateX(0) skewX(-45deg);
 }
